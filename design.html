@@ -2,12 +2,11 @@
 <html>
 <head>
   <title>Design</title>
-  <link rel="stylesheet" href="style.css">
 
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
       background: #0d0d0d;
       color: white;
     }
@@ -24,6 +23,7 @@
       color: white;
       text-decoration: none;
       font-size: 14px;
+      transition: 0.2s;
     }
 
     nav a:hover {
@@ -31,14 +31,38 @@
     }
 
     section {
-      padding: 50px 20px;
+      padding: 60px 20px;
       max-width: 1100px;
       margin: auto;
     }
 
     h2 {
       text-align: center;
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    /* FILTER BUTTONS */
+    .filters {
+      text-align: center;
       margin-bottom: 30px;
+    }
+
+    .filters button {
+      background: none;
+      border: 1px solid #333;
+      color: #aaa;
+      padding: 6px 12px;
+      margin: 5px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .filters button.active,
+    .filters button:hover {
+      border-color: #ffb6c1;
+      color: #ffb6c1;
     }
 
     /* GRID */
@@ -54,6 +78,14 @@
       border-radius: 16px;
       overflow: hidden;
       cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .item.hide {
+      opacity: 0;
+      transform: scale(0.95);
+      pointer-events: none;
+      position: absolute;
     }
 
     .item img {
@@ -63,7 +95,7 @@
       transition: 0.3s ease;
     }
 
-    /* HOVER OVERLAY */
+    /* OVERLAY */
     .overlay {
       position: absolute;
       inset: 0;
@@ -91,18 +123,16 @@
       opacity: 1;
     }
 
-    /* POPUP (LIGHTBOX) */
+    /* LIGHTBOX */
     .lightbox {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0,0,0,0.85);
+      inset: 0;
+      background: rgba(0,0,0,0.9);
       display: none;
       align-items: center;
       justify-content: center;
       z-index: 1000;
+      animation: fadeIn 0.3s ease;
     }
 
     .lightbox img {
@@ -115,13 +145,17 @@
       display: flex;
     }
 
-    /* CLOSE BUTTON */
+    @keyframes fadeIn {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    /* CLOSE */
     .close {
       position: absolute;
-      top: 30px;
-      right: 40px;
-      font-size: 28px;
-      color: white;
+      top: 25px;
+      right: 35px;
+      font-size: 26px;
       cursor: pointer;
     }
 
@@ -141,22 +175,27 @@
 <section>
   <h2>Design Portfolio</h2>
 
+  <!-- FILTERS -->
+  <div class="filters">
+    <button class="active" onclick="filterSelection('all', this)">All</button>
+    <button onclick="filterSelection('social', this)">Social</button>
+    <button onclick="filterSelection('branding', this)">Branding</button>
+    <button onclick="filterSelection('flyer', this)">Flyers</button>
+  </div>
+
   <div class="gallery">
 
-    <!-- ITEM 1 -->
-    <div class="item" onclick="openLightbox('images/design1.jpg')">
+    <div class="item social" onclick="openLightbox('images/design1.jpg')">
       <img src="images/design1.jpg">
       <div class="overlay"><span>View</span></div>
     </div>
 
-    <!-- ITEM 2 -->
-    <div class="item" onclick="openLightbox('images/design2.jpg')">
+    <div class="item branding" onclick="openLightbox('images/design2.jpg')">
       <img src="images/design2.jpg">
       <div class="overlay"><span>View</span></div>
     </div>
 
-    <!-- ITEM 3 -->
-    <div class="item" onclick="openLightbox('images/design3.jpg')">
+    <div class="item flyer" onclick="openLightbox('images/design3.jpg')">
       <img src="images/design3.jpg">
       <div class="overlay"><span>View</span></div>
     </div>
@@ -164,9 +203,8 @@
   </div>
 </section>
 
-<!-- LIGHTBOX -->
-<div class="lightbox" id="lightbox">
-  <span class="close" onclick="closeLightbox()">&times;</span>
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="close">&times;</span>
   <img id="lightbox-img">
 </div>
 
@@ -178,6 +216,24 @@
 
   function closeLightbox() {
     document.getElementById("lightbox").classList.remove("active");
+  }
+
+  document.addEventListener("keydown", function(e) {
+    if (e.key === "Escape") closeLightbox();
+  });
+
+  function filterSelection(category, btn) {
+    let items = document.querySelectorAll(".item");
+
+    items.forEach(item => {
+      item.classList.remove("hide");
+      if (category !== "all" && !item.classList.contains(category)) {
+        item.classList.add("hide");
+      }
+    });
+
+    document.querySelectorAll(".filters button").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
   }
 </script>
 
