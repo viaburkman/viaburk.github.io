@@ -3,7 +3,191 @@
 <head>
   <title>Projects</title>
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0d0d0d;
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 20px;
+      background: #111;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: #ffb6c1;
+    }
+
+    section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+
+    /* GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    /* CARD */
+    .card {
+      background: #111;
+      padding: 22px;
+      border-radius: 18px;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* soft pink glow */
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(255,182,193,0.15), transparent 60%);
+      opacity: 0;
+      transition: 0.3s;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(255,182,193,0.15);
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card h3 {
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    /* BUTTONS */
+    .buttons {
+      margin-top: 14px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      display: inline-block;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* PINK PRIMARY */
+    .btn.primary {
+      background: linear-gradient(135deg, #ffb6c1, #ffc0cb);
+      color: black;
+      font-weight: 500;
+    }
+
+    /* OUTLINE BUTTON */
+    .btn.secondary {
+      border: 1px solid #ffb6c1;
+      color: #ffb6c1;
+    }
+
+    /* hover effects */
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(255,182,193,0.25);
+    }
+
+    .btn:active {
+      transform: scale(0.97);
+    }
+
+  </style>
 </head>
+
+<body>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="projects.html">Projects</a>
+  <a href="design.html">Design</a>
+  <a href="resume.html">Resume</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<section>
+  <h2>Coding Projects</h2>
+
+  <div class="grid">
+
+    <!-- PROJECT 1 -->
+    <div class="card">
+      <h3>Trip Route Simulator</h3>
+      <p>Python program simulating travel routes with hazards and decision-making.</p>
+
+      <div class="buttons">
+        <a href="https://github.com/yourusername/project1" target="_blank" class="btn primary">
+          View Code
+        </a>
+
+        <a href="https://your-live-demo-link.com" target="_blank" class="btn secondary">
+          Live Demo
+        </a>
+      </div>
+    </div>
+
+    <!-- PROJECT 2 -->
+    <div class="card">
+      <h3>Route Hazard System</h3>
+      <p>Handles probability-based hazards and dynamic route data.</p>
+
+      <div class="buttons">
+        <a href="https://github.com/yourusername/project2" target="_blank" class="btn primary">
+          View Code
+        </a>
+
+        <a href="https://your-live-demo-link.com" target="_blank" class="btn secondary">
+          Live Demo
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <script>
   const cards = document.querySelectorAll('.card');
@@ -18,36 +202,6 @@
 
   cards.forEach(card => observer.observe(card));
 </script>
-
-<body>
-
-<nav>
-  <a href="index.html">Home</a>
-  <a href="projects.html">Projects</a>
-  <a href="design.html">Design</a>
-  <a href="resume.html">Resume</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
-<section>
-  <h2> Coding Projects</h2>
-
-  <div class="grid">
-
-    <div class="card">
-      <h3>Trip Route Simulator</h3>
-      <p>Python program simulating travel routes with hazards and decision-making.</p>
-      <a href="#" class="btn">View Code</a>
-    </div>
-
-    <div class="card">
-      <h3>Route Hazard System</h3>
-      <p>Handles probability-based hazards and dynamic route data.</p>
-      <a href="#" class="btn">View Code</a>
-    </div>
-
-  </div>
-</section>
 
 </body>
 </html>
