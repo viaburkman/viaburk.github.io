@@ -1,9 +1,177 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Design Portfolio</title>
+  <title>Design</title>
   <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0d0d0d;
+      color: white;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 20px;
+      background: #111;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: #ffb6c1;
+    }
+
+    section {
+      padding: 50px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 28px;
+    }
+
+    /* GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    /* CARD */
+    .card {
+      background: #111;
+      border-radius: 18px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      opacity: 0;
+      transform: translateY(30px);
+      position: relative;
+    }
+
+    /* glow */
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top left, rgba(255,182,193,0.15), transparent 60%);
+      opacity: 0;
+      transition: 0.3s;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(255,182,193,0.15);
+    }
+
+    .card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* IMAGE */
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    /* CONTENT */
+    .card-content {
+      padding: 16px;
+    }
+
+    .card h3 {
+      margin: 0 0 6px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    /* BUTTON */
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: all 0.25s ease;
+      background: linear-gradient(135deg, #ffb6c1, #ffc0cb);
+      color: black;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 18px rgba(255,182,193,0.25);
+    }
+
+  </style>
 </head>
+
+<body>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="projects.html">Projects</a>
+  <a href="design.html">Design</a>
+  <a href="resume.html">Resume</a>
+  <a href="contact.html">Contact</a>
+</nav>
+
+<section>
+  <h2>Design Work</h2>
+
+  <div class="grid">
+
+    <!-- DESIGN 1 -->
+    <div class="card">
+      <img src="images/design1.jpg" alt="Design 1">
+
+      <div class="card-content">
+        <h3>Instagram Post Design</h3>
+        <p>Clean social media graphic created in Canva.</p>
+
+        <a href="https://your-canva-link.com" target="_blank" class="btn">
+          View Design
+        </a>
+      </div>
+    </div>
+
+    <!-- DESIGN 2 -->
+    <div class="card">
+      <img src="images/design2.jpg" alt="Design 2">
+
+      <div class="card-content">
+        <h3>Flyer Design</h3>
+        <p>Event flyer with modern layout and typography.</p>
+
+        <a href="https://your-canva-link.com" target="_blank" class="btn">
+          View Design
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 <script>
   const cards = document.querySelectorAll('.card');
@@ -18,39 +186,6 @@
 
   cards.forEach(card => observer.observe(card));
 </script>
-  
-<body>
-
-<nav>
-  <a href="index.html">Home</a>
-  <a href="projects.html">Projects</a>
-  <a href="design.html">Design</a>
-  <a href="resume.html">Resume</a>
-  <a href="contact.html">Contact</a>
-</nav>
-
-<section>
-  <h2> Design Portfolio</h2>
-
-  <div class="grid">
-
-    <div class="card">
-      <h3>Social Media Campaign</h3>
-      <img src="your-image.jpg">
-    </div>
-
-    <div class="card">
-      <h3>Marketing Flyer</h3>
-      <img src="your-image2.jpg">
-    </div>
-
-    <div class="card">
-      <h3>Presentation Design</h3>
-      <img src="your-image3.jpg">
-    </div>
-
-  </div>
-</section>
 
 </body>
 </html>
