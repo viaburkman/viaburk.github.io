@@ -6,20 +6,6 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<script>
-  const cards = document.querySelectorAll('.card');
-
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      }
-    });
-  });
-
-  cards.forEach(card => observer.observe(card));
-</script>
-
 <body>
 
 <nav>
@@ -30,18 +16,20 @@
   <a href="contact.html">Contact</a>
 </nav>
 
-<header>
+<header class="card">
   <h1>Olivia Burkman</h1>
   <p>Aspiring Cybersecurity & Data Analyst</p>
 
-  <p class="subtitle">
+  <p class="subtitle" style="color:#9ca3af; max-width:600px; margin:auto;">
     I combine technical problem-solving with strong visual communication to create solutions that are both functional and user-friendly.
   </p>
 
-  <a href="projects.html" class="btn">View My Work</a>
+  <div style="margin-top:20px;">
+    <a href="projects.html" class="btn primary">View My Work</a>
+  </div>
 </header>
 
-<section>
+<section class="card">
   <h2>Welcome</h2>
   <p>
     Explore my coding projects, design work, and professional experience.
@@ -49,8 +37,27 @@
 </section>
 
 <footer>
-  <p>© 2026 Olivia B.</p>
+  <p style="text-align:center; color:#9ca3af; padding:20px;">
+    © 2026 Olivia B.
+  </p>
 </footer>
+
+<!-- ✅ FIXED ANIMATION SCRIPT (MUST BE AT BOTTOM) -->
+<script>
+const cards = document.querySelectorAll('.card');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('show');
+      }, i * 80);
+    }
+  });
+}, { threshold: 0.15 });
+
+cards.forEach(card => observer.observe(card));
+</script>
 
 </body>
 </html>
