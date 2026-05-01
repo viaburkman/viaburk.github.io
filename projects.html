@@ -105,17 +105,21 @@
 </section>
 
 <script>
-  const cards = document.querySelectorAll('.card');
+const elements = document.querySelectorAll('.card, .item');
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
         entry.target.classList.add('show');
-      }
-    });
+      }, index * 80); // 👈 stagger effect (Apple feel)
+    }
   });
+}, {
+  threshold: 0.15
+});
 
-  cards.forEach(card => observer.observe(card));
+elements.forEach(el => observer.observe(el));
 </script>
 
 </body>
