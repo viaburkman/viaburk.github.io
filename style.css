@@ -281,3 +281,52 @@ footer {
   padding: 30px;
   color: #9ca3af;
 }
+
+@media (max-width: 768px) {
+
+  /* make sections breathe more */
+  section {
+    padding: 40px 16px;
+  }
+
+  /* NAV becomes smaller + wraps */
+  nav a {
+    margin: 0 10px;
+    font-size: 14px;
+  }
+
+  /* GRID becomes single column on mobile */
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* CARDS scale better */
+  .card {
+    padding: 16px;
+  }
+
+  /* DESIGN IMAGES taller for phone viewing */
+  .item img {
+    height: 200px;
+  }
+
+  /* BUTTONS stack nicely */
+  .buttons {
+    flex-direction: column;
+  }
+
+  .btn {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* TITLE scaling */
+  h1 {
+    font-size: 2.2em;
+  }
+
+  h2 {
+    font-size: 1.6em;
+  }
+}
