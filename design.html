@@ -26,23 +26,17 @@
     <button onclick="filterSelection('branding', this)">Branding</button>
   </div>
 
+  <!-- GALLERY -->
   <div class="grid">
 
-    <!-- FLYER -->
+    <!-- FLYERS -->
     <div class="item flyer" onclick="openLightbox('images/flyer1.jpg')">
       <img src="images/flyer1.jpg">
       <div class="overlay"><span>Flyer</span></div>
     </div>
 
-    <!-- FLYER -->
     <div class="item flyer" onclick="openLightbox('images/flyer2.jpg')">
       <img src="images/flyer2.jpg">
-      <div class="overlay"><span>Flyer</span></div>
-    </div>
-
-    <!-- FLYER -->
-    <div class="item flyer" onclick="openLightbox('images/flyer3.jpg')">
-      <img src="images/flyer3.jpg">
       <div class="overlay"><span>Flyer</span></div>
     </div>
 
@@ -61,28 +55,48 @@
   </div>
 </section>
 
-<!-- LIGHTBOX -->
+<!-- LIGHTBOX (POPUP) -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
   <img id="lightbox-img">
 </div>
 
 <script>
+  // OPEN POPUP
   function openLightbox(src) {
     document.getElementById("lightbox-img").src = src;
     document.getElementById("lightbox").classList.add("active");
   }
 
+  // CLOSE POPUP (only when clicking background)
   function closeLightbox(e) {
-    // only close if clicking background (not image)
     if (!e || e.target.id === "lightbox") {
       document.getElementById("lightbox").classList.remove("active");
     }
   }
 
+  // ESC KEY CLOSE
   document.addEventListener("keydown", function(e) {
     if (e.key === "Escape") closeLightbox();
   });
+
+  // FILTER SYSTEM
+  function filterSelection(category, btn) {
+    let items = document.querySelectorAll(".item");
+
+    items.forEach(item => {
+      item.style.display = "block";
+
+      if (category !== "all" && !item.classList.contains(category)) {
+        item.style.display = "none";
+      }
+    });
+
+    document.querySelectorAll(".filters button")
+      .forEach(b => b.classList.remove("active"));
+
+    btn.classList.add("active");
+  }
 </script>
-  
+
 </body>
 </html>
