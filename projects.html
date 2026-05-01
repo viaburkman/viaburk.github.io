@@ -2,137 +2,7 @@
 <html>
 <head>
   <title>Projects</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-      background: #0d0d0d;
-      color: white;
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      padding: 20px;
-      background: #111;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-size: 14px;
-      transition: 0.2s;
-    }
-
-    nav a:hover {
-      color: #ffb6c1;
-    }
-
-    section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-
-    h2 {
-      text-align: center;
-      margin-bottom: 40px;
-      font-weight: 500;
-    }
-
-    /* FEATURED PROJECT */
-    .featured {
-      background: #111;
-      border-radius: 20px;
-      padding: 30px;
-      margin-bottom: 50px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .featured::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top left, rgba(255,182,193,0.2), transparent 60%);
-    }
-
-    .featured h3 {
-      margin-top: 0;
-    }
-
-    /* TAGS */
-    .tags {
-      margin: 10px 0;
-    }
-
-    .tag {
-      display: inline-block;
-      background: rgba(255,182,193,0.15);
-      color: #ffb6c1;
-      padding: 4px 10px;
-      border-radius: 8px;
-      font-size: 12px;
-      margin-right: 6px;
-    }
-
-    /* BUTTONS */
-    .buttons {
-      margin-top: 15px;
-      display: flex;
-      gap: 10px;
-    }
-
-    .btn {
-      padding: 8px 14px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 14px;
-      transition: 0.25s;
-    }
-
-    .btn.primary {
-      background: linear-gradient(135deg, #ffb6c1, #ffc0cb);
-      color: black;
-    }
-
-    .btn.secondary {
-      border: 1px solid #ffb6c1;
-      color: #ffb6c1;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 18px rgba(255,182,193,0.25);
-    }
-
-    /* GRID */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-    }
-
-    .card {
-      background: #111;
-      padding: 20px;
-      border-radius: 16px;
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-    }
-
-    .card p {
-      color: #aaa;
-      font-size: 14px;
-    }
-
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -148,36 +18,38 @@
 <section>
   <h2>Projects</h2>
 
-  <!-- ⭐ FEATURED PROJECT -->
-  <div class="featured">
-    <h3>Trip Route Simulator</h3>
-    <p>
-      Simulates travel routes with dynamic hazard events and decision-making logic.
-      Designed to track unique cities, hazards, and outcomes using Python sets and functions.
-    </p>
-
-    <div class="tags">
-      <span class="tag">Python</span>
-      <span class="tag">Data Structures</span>
-      <span class="tag">Simulation</span>
-    </div>
-
-    <div class="buttons">
-      <a href="https://github.com/yourusername/project1" target="_blank" class="btn primary">
-        View Code
-      </a>
-      <a href="#" class="btn secondary">
-        Live Demo
-      </a>
-    </div>
-  </div>
-
-  <!-- OTHER PROJECTS -->
   <div class="grid">
 
+    <!-- PROJECT 1 -->
+    <div class="card">
+      <h3>Trip Route Simulator</h3>
+      <p>
+        Simulates travel routes with dynamic hazard events and decision-making logic.
+        Tracks unique cities and hazards using Python sets.
+      </p>
+
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">Simulation</span>
+        <span class="tag">Data Structures</span>
+      </div>
+
+      <div class="buttons">
+        <a href="https://github.com/yourusername/project1" target="_blank" class="btn primary">
+          View Code
+        </a>
+        <a href="#" class="btn secondary">
+          Live Demo
+        </a>
+      </div>
+    </div>
+
+    <!-- PROJECT 2 -->
     <div class="card">
       <h3>Route Hazard System</h3>
-      <p>Handles probability-based hazard generation and route tracking logic.</p>
+      <p>
+        Implements probability-based hazard generation and dynamic route tracking logic.
+      </p>
 
       <div class="tags">
         <span class="tag">Python</span>
@@ -186,14 +58,17 @@
 
       <div class="buttons">
         <a href="https://github.com/yourusername/project2" target="_blank" class="btn primary">
-          Code
+          View Code
         </a>
       </div>
     </div>
 
+    <!-- PROJECT 3 -->
     <div class="card">
       <h3>Trivia Gate System</h3>
-      <p>Implements trivia-based progression logic replacing randomness with user input.</p>
+      <p>
+        Replaces randomness with trivia-based progression using user input and validation.
+      </p>
 
       <div class="tags">
         <span class="tag">Python</span>
@@ -202,14 +77,27 @@
 
       <div class="buttons">
         <a href="https://github.com/yourusername/project3" target="_blank" class="btn primary">
-          Code
+          View Code
         </a>
       </div>
     </div>
 
   </div>
-
 </section>
+
+<script>
+  const cards = document.querySelectorAll('.card');
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      }
+    });
+  });
+
+  cards.forEach(card => observer.observe(card));
+</script>
 
 </body>
 </html>
