@@ -20,21 +20,66 @@
 
 <h1>Design Portfolio</h1>
 
+<!-- CATEGORY FILTER BUTTONS -->
+<div class="filter-bar">
+  <button class="filter-btn active" onclick="filterDesign('all')">All</button>
+  <button class="filter-btn" onclick="filterDesign('canva')">Canva</button>
+  <button class="filter-btn" onclick="filterDesign('art')">Art</button>
+</div>
+
+<!-- GALLERY -->
 <div class="grid">
 
-  <div class="item" onclick="openLightbox('images/flyer1.jpg')">
+  <!-- CANVA ITEMS -->
+  <div class="item canva reveal" onclick="openLightbox('images/flyer1.jpg')">
     <img src="images/flyer1.jpg">
-    <div class="overlay"><span>Flyer</span></div>
+    <div class="overlay"><span>Fyler Design</span></div>
   </div>
 
-  <div class="item" onclick="openLightbox('images/flyer2.jpg')">
+  <div class="item canva reveal" onclick="openLightbox('images/flyer2.jpg')">
     <img src="images/flyer2.jpg">
-    <div class="overlay"><span>Flyer</span></div>
+    <div class="overlay"><span>Menu Design</span></div>
   </div>
 
-  <div class="item" onclick="openLightbox('images/social1.jpg')">
-    <img src="images/social1.jpg">
-    <div class="overlay"><span>Social</span></div>
+  <div class="item canva reveal" onclick="openLightbox('images/flyer3.jpg')">
+    <img src="images/flyer3.jpg">
+    <div class="overlay"><span>Menu Design</span></div>
+  </div>
+
+  <div class="item canva reveal" onclick="openLightbox('images/flyer4.jpg')">
+    <img src="images/flyer4.jpg">
+    <div class="overlay"><span>Menu Design</span></div>
+  </div>
+
+  <div class="item canva reveal" onclick="openLightbox('images/flyer5.jpg')">
+    <img src="images/flyer5.jpg">
+    <div class="overlay"><span>Menu Design</span></div>
+  </div>
+
+  <div class="item canva reveal" onclick="openLightbox('images/flyer6.jpg')">
+    <img src="images/flyer6.jpg">
+    <div class="overlay"><span>Menu Design</span></div>
+  </div>
+
+  <div class="item canva reveal" onclick="openLightbox('images/flyer7.jpg')">
+    <img src="images/flyer7.jpg">
+    <div class="overlay"><span>Menu Design</span></div>
+  </div>
+
+  <div class="item canva reveal" onclick="openLightbox('images/flyer8.jpg')">
+    <img src="images/flyer8.jpg">
+    <div class="overlay"><span>Menu Design</span></div>
+  </div>
+
+  <!-- ART ITEMS -->
+  <div class="item art reveal" onclick="openLightbox('images/art1.jpg')">
+    <img src="images/art1.jpg">
+    <div class="overlay"><span>Artwork</span></div>
+  </div>
+
+  <div class="item art reveal" onclick="openLightbox('images/art2.jpg')">
+    <img src="images/art2.jpg">
+    <div class="overlay"><span>Artwork</span></div>
   </div>
 
 </div>
@@ -58,12 +103,32 @@ function closeLightbox(e){
   }
 }
 
-/* ✅ DESIGN ONLY ANIMATION (ISOLATED) */
-const items = document.querySelectorAll('.item');
+/* ================= FILTER SYSTEM ================= */
+function filterDesign(category) {
+  const items = document.querySelectorAll('.item');
 
-const observer = new IntersectionObserver((entries) => {
+  items.forEach(item => {
+    if (category === 'all') {
+      item.style.display = 'block';
+    } else {
+      item.style.display = item.classList.contains(category) ? 'block' : 'none';
+    }
+  });
+
+  // button active state
+  document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+
+  event.target.classList.add('active');
+}
+
+/* scroll animation */
+const items = document.querySelectorAll('.reveal');
+
+const observer = new IntersectionObserver(entries => {
   entries.forEach((entry, i) => {
-    if(entry.isIntersecting){
+    if (entry.isIntersecting) {
       setTimeout(() => {
         entry.target.classList.add('show');
       }, i * 60);
@@ -71,7 +136,7 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 
-items.forEach(item => observer.observe(item));
+items.forEach(i => observer.observe(i));
 </script>
 
 </body>
