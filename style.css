@@ -249,15 +249,19 @@ h2 {
 
 /* IMPORTANT: prevents stretching */
 .lightbox img {
-  max-width: 85%;
-  max-height: 85%;
+  max-width: 85vw;
+  max-height: 85vh;
+
   width: auto !important;
   height: auto !important;
+
   object-fit: contain;
+
+  display: block;
+  margin: auto;
 
   border-radius: 16px;
   box-shadow: 0 25px 60px rgba(0,0,0,0.6);
-  animation: zoomIn 0.25s ease;
 }
 
 @keyframes zoomIn {
