@@ -71,21 +71,20 @@ h2 {
 }
 
 /* CARDS (PROJECTS) */
-.card {
-  background: #111;
-  padding: 20px;
-  border-radius: 16px;
-  border: 1px solid #1f1f1f;
-  transition: all 0.35s ease;
-  position: relative;
-  overflow: hidden;
+/* smoother Apple-style base state */
+.card,
+.item {
   opacity: 0;
-  transform: translateY(25px);
+  transform: translateY(30px) scale(0.98);
+  transition: all 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+  will-change: transform, opacity;
 }
 
-.card.show {
+/* reveal state */
+.card.show,
+.item.show {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 /* glow effect */
