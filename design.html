@@ -13,72 +13,61 @@
   <a href="projects.html">Projects</a>
   <a href="design.html">Design</a>
   <a href="resume.html">Resume</a>
-  <a href="contact.html">Contact</a>
 </nav>
 
 <section>
-  <h2>Design Portfolio</h2>
 
-  <div class="filters">
-    <button class="active" onclick="filterSelection('all', this)">All</button>
-    <button onclick="filterSelection('flyer', this)">Flyers</button>
-    <button onclick="filterSelection('social', this)">Social</button>
-    <button onclick="filterSelection('branding', this)">Branding</button>
+<h2>Design Portfolio</h2>
+
+<div class="grid">
+
+  <div class="item" onclick="openLightbox('images/flyer1.jpg')">
+    <img src="images/flyer1.jpg">
+    <div class="overlay"><span>Flyer</span></div>
   </div>
 
-  <div class="grid">
-
-    <div class="item flyer" onclick="openLightbox('images/flyer1.jpg')">
-      <img src="images/flyer1.jpg">
-      <div class="overlay"><span>Flyer</span></div>
-    </div>
-
-    <div class="item flyer" onclick="openLightbox('images/flyer2.jpg')">
-      <img src="images/flyer2.jpg">
-      <div class="overlay"><span>Menu</span></div>
-    </div>
-
-    <div class="item flyer" onclick="openLightbox('images/flyer3.jpg')">
-      <img src="images/flyer3.jpg">
-      <div class="overlay"><span>Menu</span></div>
-    </div>
-
-    <div class="item flyer" onclick="openLightbox('images/flyer4.jpg')">
-      <img src="images/flyer4.jpg">
-      <div class="overlay"><span>Menu</span></div>
-    </div>
-
-    <div class="item flyer" onclick="openLightbox('images/flyer5.jpg')">
-      <img src="images/flyer5.jpg">
-      <div class="overlay"><span>Menu</span></div>
-    </div>
-
-    <div class="item flyer" onclick="openLightbox('images/flyer6.jpg')">
-      <img src="images/flyer6.jpg">
-      <div class="overlay"><span>Menu</span></div>
-    </div>
-
-    <div class="item flyer" onclick="openLightbox('images/flyer7.jpg')">
-      <img src="images/flyer7.jpg">
-      <div class="overlay"><span>Menu</span></div>
-    </div>
-
-    <div class="item flyer" onclick="openLightbox('images/flyer8.jpg')">
-      <img src="images/flyer8.jpg">
-      <div class="overlay"><span>Menu</span></div>
-    </div>
-
-    <div class="item social" onclick="openLightbox('images/social1.jpg')">
-      <img src="images/social1.jpg">
-      <div class="overlay"><span>Social</span></div>
-    </div>
-
-    <div class="item branding" onclick="openLightbox('images/brand1.jpg')">
-      <img src="images/brand1.jpg">
-      <div class="overlay"><span>Branding</span></div>
-    </div>
-
+  <div class="item" onclick="openLightbox('images/flyer2.jpg')">
+    <img src="images/flyer2.jpg">
+    <div class="overlay"><span>Menu</span></div>
   </div>
+
+  <div class="item" onclick="openLightbox('images/flyer3.jpg')">
+    <img src="images/flyer3.jpg">
+    <div class="overlay"><span>Menu</span></div>
+  </div>
+
+  <div class="item" onclick="openLightbox('images/flyer4.jpg')">
+    <img src="images/flyer4.jpg">
+    <div class="overlay"><span>Menu</span></div>
+  </div>
+
+  <div class="item" onclick="openLightbox('images/flyer5.jpg')">
+    <img src="images/flyer5.jpg">
+    <div class="overlay"><span>Menu</span></div>
+  </div>
+
+  <div class="item" onclick="openLightbox('images/flyer6.jpg')">
+    <img src="images/flyer6.jpg">
+    <div class="overlay"><span>Menu</span></div>
+  </div>
+
+  <div class="item" onclick="openLightbox('images/flyer7.jpg')">
+    <img src="images/flyer7.jpg">
+    <div class="overlay"><span>Menu</span></div>
+  </div>
+
+  <div class="item" onclick="openLightbox('images/flyer8.jpg')">
+    <img src="images/flyer8.jpg">
+    <div class="overlay"><span>Menu</span></div>
+  </div>
+
+  <div class="item" onclick="openLightbox('images/social1.jpg')">
+    <img src="images/social1.jpg">
+    <div class="overlay"><span>Social</span></div>
+  </div>
+
+</div>
+
 </section>
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
@@ -86,44 +75,29 @@
 </div>
 
 <script>
-function openLightbox(src) {
-  document.getElementById("lightbox-img").src = src;
-  document.getElementById("lightbox").classList.add("active");
+function openLightbox(src){
+  document.getElementById('lightbox-img').src = src;
+  document.getElementById('lightbox').classList.add('active');
 }
 
-function closeLightbox(e) {
-  if (!e || e.target.id === "lightbox") {
-    document.getElementById("lightbox").classList.remove("active");
+function closeLightbox(e){
+  if(e.target.id === "lightbox"){
+    document.getElementById('lightbox').classList.remove('active');
   }
 }
 
-function filterSelection(category, btn) {
-  let items = document.querySelectorAll(".item");
+/* DESIGN ANIMATION ONLY */
+const items = document.querySelectorAll('.item');
 
-  items.forEach(item => {
-    item.style.display = "block";
-    if (category !== "all" && !item.classList.contains(category)) {
-      item.style.display = "none";
-    }
-  });
-
-  document.querySelectorAll(".filters button")
-    .forEach(b => b.classList.remove("active"));
-
-  btn.classList.add("active");
-}
-
-const elements = document.querySelectorAll('.card, .item');
-
-const observer = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver(entries => {
   entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('show'), i * 80);
+    if(entry.isIntersecting){
+      setTimeout(() => entry.target.classList.add('show'), i * 60);
     }
   });
-}, { threshold: 0.15 });
+});
 
-elements.forEach(el => observer.observe(el));
+items.forEach(i => observer.observe(i));
 </script>
 
 </body>
