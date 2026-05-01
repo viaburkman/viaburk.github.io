@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Resume</title>
+  <title>Resume | Olivia B</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -18,52 +18,94 @@
 
 <section>
 
-<h1>Resume</h1>
+  <div style="text-align:center; margin-bottom:40px;">
+    <h1>Resume</h1>
+    <p style="color:#9ca3af; max-width:650px; margin:auto;">
+      Experience timeline highlighting my professional, technical, and design background.
+    </p>
+  </div>
 
-<div class="card reveal">
-  <h2>Profile</h2>
-  <p>Aspiring cybersecurity and data analyst with strong technical + creative skills.</p>
-</div>
+  <!-- TIMELINE -->
+  <div class="timeline">
 
-<div class="card reveal">
-  <h2>Skills</h2>
-  <p>Python, Data Analysis, Design, Communication</p>
-</div>
+    <!-- ITEM 1 -->
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content card">
+        <h3>Administrative Assistant</h3>
+        <span class="date">2025 – Present</span>
+        <p>
+          Managed scheduling, documentation, and internal coordination. Supported daily operations and ensured efficient communication across teams.
+        </p>
+      </div>
+    </div>
 
-<div class="card reveal">
-  <h2>Experience</h2>
-  <p>Administrative + customer-facing + design work experience.</p>
-</div>
+    <!-- ITEM 2 -->
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content card">
+        <h3>Customer-Facing Roles</h3>
+        <span class="date">2024 – 2025</span>
+        <p>
+          Built strong communication and problem-solving skills in fast-paced environments while handling customer needs and multitasking.
+        </p>
+      </div>
+    </div>
 
-<div class="card reveal">
-  <h2>Projects</h2>
-  <p>Python-based simulation systems and logic engines.</p>
-</div>
+    <!-- ITEM 3 -->
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content card">
+        <h3>Design Work</h3>
+        <span class="date">2023 – Present</span>
+        <p>
+          Created flyers, social media content, and branding visuals focused on clarity, engagement, and visual storytelling.
+        </p>
+      </div>
+    </div>
 
-<div class="card reveal">
-  <h2>Focus</h2>
-  <p>Cybersecurity + data systems + programming.</p>
-</div>
+    <!-- ITEM 4 -->
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-content card">
+        <h3>Technical Projects (Python)</h3>
+        <span class="date">2024 – Present</span>
+        <p>
+          Built simulation systems, route logic engines, and structured data programs using Python with modular design principles.
+        </p>
+      </div>
+    </div>
 
-<div style="text-align:center; margin-top:50px;">
-  <a class="btn primary" href="resume.pdf">
-    Download PDF Resume
-  </a>
-</div>
+  </div>
+
+  <!-- DOWNLOAD -->
+  <div style="text-align:center; margin-top:60px;">
+    <a href="Olivia Burkman Resume (As of April 2026).pdf" class="btn primary">
+      Download PDF Resume
+    </a>
+  </div>
 
 </section>
 
+<footer>
+  <p style="text-align:center; color:#9ca3af; padding:20px;">
+    © 2026 Olivia B.
+  </p>
+</footer>
+
+<!-- ANIMATION -->
 <script>
-/* RESUME ONLY ANIMATION */
 const items = document.querySelectorAll('.reveal');
 
 const observer = new IntersectionObserver(entries => {
   entries.forEach((entry, i) => {
-    if(entry.isIntersecting){
-      setTimeout(() => entry.target.classList.add('show'), i * 80);
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('show');
+      }, i * 80);
     }
   });
-});
+}, { threshold: 0.15 });
 
 items.forEach(i => observer.observe(i));
 </script>
