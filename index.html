@@ -16,20 +16,27 @@
   <a href="contact.html">Contact</a>
 </nav>
 
-<header class="card">
-  <h1>Olivia Burkman</h1>
-  <p>Aspiring Cybersecurity & Data Analyst</p>
+<!-- HERO WRAPPER (CENTER FIX) -->
+<header class="hero">
 
-  <p class="subtitle" style="color:#9ca3af; max-width:600px; margin:auto;">
-    I combine technical problem-solving with strong visual communication to create solutions that are both functional and user-friendly.
+  <h1>Olivia Burkman</h1>
+
+  <p class="subtitle">
+    Aspiring Cybersecurity & Data Analyst
   </p>
 
-  <div style="margin-top:20px;">
+  <p class="hero-text">
+    I combine technical problem-solving with strong visual communication to create clean, functional, and user-friendly systems.
+  </p>
+
+  <div class="hero-buttons">
     <a href="projects.html" class="btn primary">View My Work</a>
+    <a href="design.html" class="btn">Design Portfolio</a>
   </div>
+
 </header>
 
-<section class="card">
+<section class="center-section">
   <h2>Welcome</h2>
   <p>
     Explore my coding projects, design work, and professional experience.
@@ -41,23 +48,6 @@
     © 2026 Olivia B.
   </p>
 </footer>
-
-<!-- ✅ FIXED ANIMATION SCRIPT (MUST BE AT BOTTOM) -->
-<script>
-const cards = document.querySelectorAll('.card');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => {
-        entry.target.classList.add('show');
-      }, i * 80);
-    }
-  });
-}, { threshold: 0.15 });
-
-cards.forEach(card => observer.observe(card));
-</script>
 
 </body>
 </html>
