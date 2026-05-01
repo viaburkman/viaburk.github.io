@@ -72,28 +72,17 @@
     document.getElementById("lightbox").classList.add("active");
   }
 
-  function closeLightbox() {
-    document.getElementById("lightbox").classList.remove("active");
+  function closeLightbox(e) {
+    // only close if clicking background (not image)
+    if (!e || e.target.id === "lightbox") {
+      document.getElementById("lightbox").classList.remove("active");
+    }
   }
 
   document.addEventListener("keydown", function(e) {
     if (e.key === "Escape") closeLightbox();
   });
-
-  function filterSelection(category, btn) {
-    let items = document.querySelectorAll(".item");
-
-    items.forEach(item => {
-      item.style.display = "block";
-      if (category !== "all" && !item.classList.contains(category)) {
-        item.style.display = "none";
-      }
-    });
-
-    document.querySelectorAll(".filters button").forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
-  }
 </script>
-
+  
 </body>
 </html>
