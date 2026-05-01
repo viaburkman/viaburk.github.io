@@ -5,7 +5,13 @@ body {
   margin: 0;
   background: #0a0a0a;
   color: #f5f5f5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+    html {
+    scroll-behavior: smooth;
+  }
 }
+
 
 /* NAVBAR */
 nav {
