@@ -21,6 +21,7 @@ nav {
   padding: 15px;
   text-align: center;
   border-bottom: 1px solid #1f1f1f;
+  z-index: 1000;
 }
 
 nav a {
@@ -34,27 +35,38 @@ nav a:hover {
   color: #f472b6;
 }
 
-/* ================= HERO WRAPPER (IMPORTANT FIX) ================= */
+/* ================= PAGE LAYOUT ================= */
+section {
+  padding: 60px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+h1 { color: #f9a8d4; }
+h2 { color: #f472b6; }
+
+p {
+  color: #b5b5b5;
+  line-height: 1.6;
+}
+
+/* ================= HERO ================= */
 .hero-wrapper {
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
   padding: 90px 20px;
 }
 
-/* INNER HERO CONTAINER */
 .hero {
   max-width: 900px;
   width: 100%;
   text-align: center;
-
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* ================= HERO TEXT ================= */
 .hero h1 {
   font-size: 3.2rem;
   margin: 0;
@@ -70,18 +82,9 @@ nav a:hover {
   color: #b5b5b5;
   max-width: 600px;
   margin-top: 15px;
-  line-height: 1.6;
 }
 
 /* ================= BUTTONS ================= */
-.hero-buttons {
-  display: flex;
-  gap: 12px;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 25px;
-}
-
 .btn {
   padding: 10px 15px;
   border-radius: 10px;
@@ -98,31 +101,257 @@ nav a:hover {
   transform: translateY(-2px);
 }
 
-/* ================= CENTER SECTION ================= */
-.center-section {
-  text-align: center;
-  max-width: 800px;
-  margin: auto;
-  padding: 40px 20px;
+/* ================= GRID ================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 22px;
 }
 
-/* ================= GLOBAL TEXT ================= */
-h1 { color: #f9a8d4; }
-h2 { color: #f472b6; }
+/* =========================================================
+   ⭐ PROJECT / GENERAL CARD (SMOOTH APPLE-STYLE HOVER)
+========================================================= */
 
-p {
-  color: #b5b5b5;
-  line-height: 1.6;
+.card {
+  background: #111;
+  border: 1px solid #1f1f1f;
+  border-radius: 16px;
+  padding: 20px;
+
+  transition: all 0.3s ease;
+
+  opacity: 0;
+  transform: translateY(25px);
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ⭐ SMOOTH PREMIUM HOVER (APPLE STYLE) */
+.card:hover {
+  transform: translateY(-8px);
+  border-color: #f9a8d4;
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.4),
+    0 0 18px rgba(249,168,212,0.35);
+}
+
+/* ================= DESIGN ITEMS ================= */
+.item {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+
+  opacity: 0;
+  transform: translateY(25px);
+  transition: all 0.6s ease;
+}
+
+.item.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+}
+
+/* overlay */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: 0.25s ease;
+}
+
+.item:hover .overlay {
+  opacity: 1;
+}
+
+.overlay span {
+  background: #f9a8d4;
+  color: black;
+  padding: 6px 12px;
+  border-radius: 10px;
+}
+
+/* ================= LIGHTBOX ================= */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.25s ease;
+  z-index: 9999;
+}
+
+.lightbox.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox img {
+  max-width: 85vw;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 14px;
+}
+
+/* ================= FILTER ================= */
+.filter-bar {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin: 20px 0 30px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: #111;
+  color: #f5f5f5;
+  border: 1px solid #1f1f1f;
+  padding: 8px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: #f9a8d4;
+}
+
+.filter-btn.active {
+  background: #f9a8d4;
+  color: black;
+}
+
+/* ================= RESUME ================= */
+.resume-category {
+  margin-bottom: 40px;
+}
+
+.pink-divider {
+  width: 60px;
+  height: 3px;
+  background: #f9a8d4;
+  margin: 8px 0 15px;
+  border-radius: 10px;
+}
+
+/* ================= TIMELINE ================= */
+.timeline {
+  position: relative;
+  padding-left: 20px;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #1f1f1f;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  background: #f9a8d4;
+  border-radius: 50%;
+  position: absolute;
+  left: 5px;
+  top: 18px;
+}
+
+.timeline-content {
+  margin-left: 30px;
+  padding: 16px;
+  background: #111;
+  border: 1px solid #1f1f1f;
+  border-radius: 14px;
+  transition: all 0.25s ease;
+}
+
+/* ================= CONTACT ICONS ================= */
+.icon-row {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 40px;
+}
+
+.icon-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: #111;
+  border: 1px solid #1f1f1f;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #f9a8d4;
+  font-size: 20px;
+
+  transition: all 0.2s ease;
+}
+
+.icon-btn:hover {
+  transform: translateY(-3px);
+  border-color: #f9a8d4;
+  box-shadow: 0 0 18px rgba(249,168,212,0.25);
+}
+
+/* ================= ANIMATIONS ================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: all 0.6s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ================= MOBILE ================= */
 @media (max-width: 768px) {
-  .hero h1 {
-    font-size: 2.4rem;
+  section {
+    padding: 40px 16px;
   }
 
   nav a {
     font-size: 14px;
     margin: 0 10px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 2.4rem;
   }
 }
