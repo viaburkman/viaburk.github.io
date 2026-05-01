@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Resume | Olivia Burkman</title>
+  <title>Resume | Olivia B</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -18,73 +18,78 @@
 
 <section>
 
-  <!-- HEADER -->
   <div style="text-align:center; margin-bottom:40px;">
     <h1>Resume</h1>
     <p style="color:#9ca3af; max-width:650px; margin:auto;">
-      Aspiring cybersecurity and data analyst with experience in programming, operations, and design.
+      Interactive overview of my skills, experience, and technical background.
     </p>
   </div>
 
-  <!-- RESUME CONTENT -->
-  <div class="card">
+  <!-- PROFILE -->
+  <div class="card reveal">
     <h2>Profile</h2>
     <p>
-      Aspiring cybersecurity and data analyst with a strong foundation in organization, communication, and technical problem-solving.
-      I combine structured thinking with creative design skills to build clear, effective solutions.
+      Aspiring cybersecurity and data analyst focused on structured thinking, problem-solving, and creative technical work.
     </p>
   </div>
 
-  <div class="card">
+  <!-- SKILLS (ANIMATED) -->
+  <div class="card reveal">
     <h2>Skills</h2>
-    <p>
-      Python programming (logic, file handling, data structures)<br>
-      Data organization & analysis<br>
-      Administrative coordination<br>
-      Customer communication & problem-solving<br>
-      Visual design using Canva
-    </p>
+
+    <p>Python</p>
+    <div class="bar"><div class="fill python"></div></div>
+
+    <p>Data Analysis</p>
+    <div class="bar"><div class="fill data"></div></div>
+
+    <p>Design</p>
+    <div class="bar"><div class="fill design"></div></div>
+
+    <p>Communication</p>
+    <div class="bar"><div class="fill comms"></div></div>
   </div>
 
-  <div class="card">
+  <!-- EXPERIENCE (INTERACTIVE CARDS) -->
+  <div class="card reveal hover-card">
     <h2>Experience</h2>
 
-    <p>
-      <strong>Administrative Assistant</strong><br>
-      Managed scheduling, documentation, and internal coordination with high attention to detail.
-    </p>
+    <div class="timeline-item">
+      <h3>Administrative Assistant</h3>
+      <p>Scheduling, documentation, internal coordination.</p>
+    </div>
 
-    <p>
-      <strong>Customer-Facing Roles</strong><br>
-      Developed communication, adaptability, and multitasking in fast-paced environments.
-    </p>
+    <div class="timeline-item">
+      <h3>Customer-Facing Roles</h3>
+      <p>Communication, multitasking, and problem-solving in fast-paced environments.</p>
+    </div>
 
-    <p>
-      <strong>Design Work</strong><br>
-      Created promotional and marketing visuals used for engagement and branding.
-    </p>
+    <div class="timeline-item">
+      <h3>Design Work</h3>
+      <p>Marketing visuals and branding content creation.</p>
+    </div>
   </div>
 
-  <div class="card">
+  <!-- TECH PROJECTS -->
+  <div class="card reveal">
     <h2>Technical Projects</h2>
-    <p>
-      Built Python-based systems including route simulation and hazard logic engines using structured data and modular design.
-    </p>
+    <p>Built Python systems involving simulation logic, structured data, and decision-based outcomes.</p>
 
     <div class="buttons">
       <a href="projects.html" class="btn primary">View Projects</a>
     </div>
   </div>
 
-  <div class="card">
+  <!-- FOCUS -->
+  <div class="card reveal">
     <h2>Focus</h2>
     <p>
-      Currently developing deeper expertise in cybersecurity fundamentals, data systems, and applied programming with the goal of entering a technical internship role.
+      Building expertise in cybersecurity fundamentals, data systems, and applied programming.
     </p>
   </div>
 
-  <!-- DOWNLOAD BUTTON (BOTTOM) -->
-  <div style="text-align:center; margin-top:50px;">
+  <!-- DOWNLOAD BUTTON -->
+  <div style="text-align:center; margin-top:60px;">
     <a href="Olivia Burkman Resume (As of April 2026).pdf" class="btn primary">
       Download PDF Resume
     </a>
@@ -97,6 +102,22 @@
     © 2026 Olivia B.
   </p>
 </footer>
+
+<script>
+const items = document.querySelectorAll('.reveal');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('show');
+      }, i * 100);
+    }
+  });
+});
+
+items.forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
