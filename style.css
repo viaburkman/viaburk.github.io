@@ -146,6 +146,80 @@ h2 { color: #f472b6; }
   transform: translateY(0);
 }
 
+
+/* ================= TIMELINE CONTAINER ================= */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: auto;
+  padding-left: 20px;
+}
+
+/* vertical line */
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #1f1f1f;
+}
+
+/* ================= TIMELINE ITEM ================= */
+.timeline-item {
+  position: relative;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: flex-start;
+}
+
+/* dot */
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  background: #f9a8d4;
+  border-radius: 50%;
+  position: absolute;
+  left: 5px;
+  top: 18px;
+  z-index: 2;
+}
+
+/* content shift */
+.timeline-content {
+  margin-left: 30px;
+  width: 100%;
+}
+
+/* date styling */
+.date {
+  display: inline-block;
+  color: #9ca3af;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+/* ensure cards still look clean inside timeline */
+.timeline-content.card {
+  background: #111;
+  border: 1px solid #1f1f1f;
+  border-radius: 16px;
+  padding: 18px;
+}
+
+/* animation reuse */
+.reveal {
+  opacity: 0;
+  transform: translateY(25px);
+  transition: all 0.6s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
 /* ================= BUTTONS ================= */
 .btn {
   padding: 10px 15px;
