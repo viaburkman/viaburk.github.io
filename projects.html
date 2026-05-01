@@ -17,111 +17,62 @@
 </nav>
 
 <section>
-  <h2>Projects</h2>
+
+  <h1 style="text-align:center;">Coding Projects</h1>
 
   <div class="grid">
 
     <!-- PROJECT 1 -->
-    <div class="card">
+    <div class="card reveal">
+
       <h3>Trip Route Simulator</h3>
-      <p>
-        Simulates travel routes with dynamic hazard events and decision-making logic.
-        Tracks unique cities and hazards using Python sets.
+
+      <p class="card-desc">
+        Python program simulating travel routes with hazards, probability events, and decision-based outcomes.
       </p>
 
-      <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">Simulation</span>
-        <span class="tag">Data Structures</span>
+      <div class="card-buttons">
+        <a href="#" class="btn primary">View Code</a>
+        <a href="#" class="btn">Run Demo</a>
       </div>
 
-      <div class="buttons">
-        <a href="https://github.com/yourusername/trip-route-simulator" target="_blank" class="btn primary">
-          View Code
-        </a>
-        <a href="#" class="btn secondary">
-          Live Demo
-        </a>
-      </div>
     </div>
 
     <!-- PROJECT 2 -->
-    <div class="card">
+    <div class="card reveal">
+
       <h3>Route Hazard System</h3>
-      <p>
-        Implements probability-based hazard generation and dynamic route tracking logic.
+
+      <p class="card-desc">
+        Dynamic hazard engine using structured data to simulate risk-based route navigation logic.
       </p>
 
-      <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">Algorithms</span>
+      <div class="card-buttons">
+        <a href="#" class="btn primary">View Code</a>
+        <a href="#" class="btn">Run Demo</a>
       </div>
 
-      <div class="buttons">
-        <a href="https://github.com/yourusername/route-hazard-system" target="_blank" class="btn primary">
-          View Code
-        </a>
-      </div>
     </div>
 
-    <!-- PROJECT 3 -->
-    <div class="card">
-      <h3>Trivia Gate System</h3>
-      <p>
-        Replaces randomness with trivia-based progression using user input and validation.
+    <!-- PROJECT 3 (EXAMPLE TEMPLATE) -->
+    <div class="card reveal">
+
+      <h3>Data Analysis Tool</h3>
+
+      <p class="card-desc">
+        Python-based data parsing and analysis system for structured datasets with summary outputs.
       </p>
 
-      <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">User Input</span>
+      <div class="card-buttons">
+        <a href="#" class="btn primary">View Code</a>
+        <a href="#" class="btn">Run Demo</a>
       </div>
 
-      <div class="buttons">
-        <a href="https://github.com/yourusername/trivia-gate-system" target="_blank" class="btn primary">
-          View Code
-        </a>
-      </div>
-    </div>
-
-    <!-- PROJECT 4 (example extra) -->
-    <div class="card">
-      <h3>Data Tracker CLI</h3>
-      <p>
-        Command-line tool for tracking and analyzing user data with structured input handling.
-      </p>
-
-      <div class="tags">
-        <span class="tag">Python</span>
-        <span class="tag">CLI</span>
-      </div>
-
-      <div class="buttons">
-        <a href="https://github.com/yourusername/data-tracker" target="_blank" class="btn primary">
-          View Code
-        </a>
-      </div>
     </div>
 
   </div>
+
 </section>
-
-<script>
-const elements = document.querySelectorAll('.card, .item');
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, index) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => {
-        entry.target.classList.add('show');
-      }, index * 80); // 👈 stagger effect (Apple feel)
-    }
-  });
-}, {
-  threshold: 0.15
-});
-
-elements.forEach(el => observer.observe(el));
-</script>
 
 </body>
 </html>
