@@ -126,6 +126,24 @@
 
     btn.classList.add("active");
   }
+
+  <script>
+const elements = document.querySelectorAll('.card, .item');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('show');
+      }, index * 80); // 👈 stagger effect (Apple feel)
+    }
+  });
+}, {
+  threshold: 0.15
+});
+
+elements.forEach(el => observer.observe(el));
+</script>
 </script>
 
 </body>
