@@ -18,32 +18,39 @@
 <section>
   <h2>Design Portfolio</h2>
 
+  <!-- FILTER BUTTONS -->
+  <div class="filters">
+    <button class="active" onclick="filterSelection('all', this)">All</button>
+    <button onclick="filterSelection('flyer', this)">Flyers</button>
+    <button onclick="filterSelection('social', this)">Social</button>
+    <button onclick="filterSelection('branding', this)">Branding</button>
+  </div>
+
   <div class="grid">
 
-    <!-- DESIGN 1 -->
-    <div class="item" onclick="openLightbox('images/design1.jpg')">
-      <img src="images/design1.jpg">
-      <div class="overlay"><span>View</span></div>
-    </div>
-
-    <!-- DESIGN 2 -->
-    <div class="item" onclick="openLightbox('images/design2.jpg')">
-      <img src="images/design2.jpg">
-      <div class="overlay"><span>View</span></div>
-    </div>
-
-    <!-- FLYER 1 -->
-    <div class="item" onclick="openLightbox('images/flyer1.jpg')">
+    <!-- FLYER -->
+    <div class="item flyer" onclick="openLightbox('images/flyer1.jpg')">
       <img src="images/flyer1.jpg">
-      <div class="overlay"><span>View</span></div>
-    </div>
-    
-     <!-- FLYER 2 -->
-    <div class="item" onclick="openLightbox('images/flyer2.jpg')">
-      <img src="images/flyer2.jpg">
-      <div class="overlay"><span>View</span></div>
+      <div class="overlay"><span>Flyer</span></div>
     </div>
 
+    <!-- FLYER -->
+    <div class="item flyer" onclick="openLightbox('images/flyer2.jpg')">
+      <img src="images/flyer2.jpg">
+      <div class="overlay"><span>Flyer</span></div>
+    </div>
+
+    <!-- SOCIAL -->
+    <div class="item social" onclick="openLightbox('images/social1.jpg')">
+      <img src="images/social1.jpg">
+      <div class="overlay"><span>Social</span></div>
+    </div>
+
+    <!-- BRANDING -->
+    <div class="item branding" onclick="openLightbox('images/brand1.jpg')">
+      <img src="images/brand1.jpg">
+      <div class="overlay"><span>Branding</span></div>
+    </div>
 
   </div>
 </section>
@@ -67,6 +74,20 @@
   document.addEventListener("keydown", function(e) {
     if (e.key === "Escape") closeLightbox();
   });
+
+  function filterSelection(category, btn) {
+    let items = document.querySelectorAll(".item");
+
+    items.forEach(item => {
+      item.style.display = "block";
+      if (category !== "all" && !item.classList.contains(category)) {
+        item.style.display = "none";
+      }
+    });
+
+    document.querySelectorAll(".filters button").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+  }
 </script>
 
 </body>
