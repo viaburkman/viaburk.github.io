@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Projects</title>
+  <title>Projects | Olivia B</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -18,54 +18,66 @@
 
 <section>
 
-  <h1 style="text-align:center;">Coding Projects</h1>
+  <!-- HEADER -->
+  <div style="text-align:center; margin-bottom:50px;">
+    <h1>Projects</h1>
+    <p style="color:#9ca3af; max-width:650px; margin:auto;">
+      A collection of my technical work including Python systems, logic engines, and data-driven applications.
+    </p>
+  </div>
 
   <div class="grid">
 
-    <!-- PROJECT 1 -->
-    <div class="card reveal">
+    <!-- PROJECT CARD -->
+    <div class="project-card reveal">
 
-      <h3>Trip Route Simulator</h3>
+      <img src="images/project1.jpg" class="project-img">
 
-      <p class="card-desc">
-        Python program simulating travel routes with hazards, probability events, and decision-based outcomes.
-      </p>
+      <div class="project-content">
+        <h3>Route Simulation System</h3>
 
-      <div class="card-buttons">
-        <a href="#" class="btn primary">View Code</a>
-        <a href="#" class="btn">Run Demo</a>
+        <p>
+          Python-based system that simulates routes, tracks hazards, and generates reports using structured data.
+        </p>
+
+        <!-- TAGS -->
+        <div class="tags">
+          <span>Python</span>
+          <span>Data Structures</span>
+          <span>Logic</span>
+        </div>
+
+        <!-- BUTTONS -->
+        <div class="card-buttons">
+          <a href="#" class="btn primary">Live Demo</a>
+          <a href="#" class="btn">View Code</a>
+        </div>
       </div>
 
     </div>
 
     <!-- PROJECT 2 -->
-    <div class="card reveal">
+    <div class="project-card reveal">
 
-      <h3>Route Hazard System</h3>
+      <img src="images/project2.jpg" class="project-img">
 
-      <p class="card-desc">
-        Dynamic hazard engine using structured data to simulate risk-based route navigation logic.
-      </p>
+      <div class="project-content">
+        <h3>Hazard Tracking Engine</h3>
 
-      <div class="card-buttons">
-        <a href="#" class="btn primary">View Code</a>
-        <a href="#" class="btn">Run Demo</a>
-      </div>
+        <p>
+          Built a system using sets and conditional logic to track unique hazards and output structured summaries.
+        </p>
 
-    </div>
+        <div class="tags">
+          <span>Python</span>
+          <span>Sets</span>
+          <span>Algorithms</span>
+        </div>
 
-    <!-- PROJECT 3 (EXAMPLE TEMPLATE) -->
-    <div class="card reveal">
-
-      <h3>Data Analysis Tool</h3>
-
-      <p class="card-desc">
-        Python-based data parsing and analysis system for structured datasets with summary outputs.
-      </p>
-
-      <div class="card-buttons">
-        <a href="#" class="btn primary">View Code</a>
-        <a href="#" class="btn">Run Demo</a>
+        <div class="card-buttons">
+          <a href="#" class="btn primary">Run Project</a>
+          <a href="#" class="btn">View Code</a>
+        </div>
       </div>
 
     </div>
@@ -73,6 +85,28 @@
   </div>
 
 </section>
+
+<footer>
+  <p style="text-align:center; color:#9ca3af; padding:20px;">
+    © 2026 Olivia B.
+  </p>
+</footer>
+
+<script>
+const items = document.querySelectorAll('.reveal');
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add('show');
+      }, i * 80);
+    }
+  });
+}, { threshold: 0.15 });
+
+items.forEach(i => observer.observe(i));
+</script>
 
 </body>
 </html>
