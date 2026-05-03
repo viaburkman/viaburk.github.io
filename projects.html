@@ -28,26 +28,31 @@
 
   <div class="grid">
 
-    <!-- PROJECT CARD -->
+    <!-- PROJECT 1 -->
     <div class="project-card reveal">
 
+      <iframe 
+        src="https://player-asset-manager--viaburkman.replit.app/"
+        class="project-frame">
+      </iframe>
+
       <div class="project-content">
-        <h3>Route Simulation System</h3>
+        <h3>Player Asset Manager</h3>
 
         <p>
-          Python-based system that simulates routes, tracks hazards, and generates reports using structured data.
+          Interactive Python-based system for managing player assets, structured data, and dynamic inputs.
         </p>
 
-        <!-- TAGS -->
         <div class="tags">
-          <span>Python | </span>
-          <span>Data Structures | </span>
-          <span>Logic</span>
+          <span>Python</span>
+          <span>Data Structures</span>
+          <span>CLI System</span>
         </div>
 
-        <!-- BUTTONS -->
         <div class="card-buttons">
-          <a href="#" class="btn primary">Live Demo</a>
+          <a href="https://player-asset-manager--viaburkman.replit.app/" target="_blank" class="btn primary">
+            Live App
+          </a>
           <a href="#" class="btn">View Code</a>
         </div>
       </div>
@@ -57,16 +62,18 @@
     <!-- PROJECT 2 -->
     <div class="project-card reveal">
 
+      <img src="images/project2.jpg" class="project-img">
+
       <div class="project-content">
-        <h3>Hazard Tracking Engine</h3>
+        <h3>Route Simulation System</h3>
 
         <p>
-          Built a system using sets and conditional logic to track unique hazards and output structured summaries.
+          Python-based system simulating routes, tracking hazards, and generating structured reports.
         </p>
 
         <div class="tags">
-          <span>Python | </span>
-          <span>Sets | </span>
+          <span>Python</span>
+          <span>Logic</span>
           <span>Algorithms</span>
         </div>
 
@@ -74,14 +81,6 @@
           <a href="#" class="btn primary">Run Project</a>
           <a href="#" class="btn">View Code</a>
         </div>
-        
-        <!-- embedded preview -->
-        <iframe 
-            src="https://player-asset-manager--viaburkman.replit.app/"
-            width="100%" 
-            height="400"
-            frameborder="0">
-          </iframe>
       </div>
 
     </div>
@@ -104,7 +103,7 @@ const observer = new IntersectionObserver(entries => {
     if (entry.isIntersecting) {
       setTimeout(() => {
         entry.target.classList.add('show');
-      }, i * 80);
+      }, i * 100);
     }
   });
 }, { threshold: 0.15 });
